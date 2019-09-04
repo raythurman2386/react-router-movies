@@ -1,6 +1,7 @@
 import React from 'react';
 
-const MovieCard = props => {
+const MovieCard = ({ movie }) => {
+  const { title, director, metascore, stars } = movie;
   return (
     <div className="movie-card">
       <h2>{title}</h2>
