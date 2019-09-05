@@ -5,6 +5,8 @@ import MovieCard from './MovieCard';
 
 const MovieList = props => {
   const [movies, setMovies] = useState([])
+
+  // useEffect to get initial list
   useEffect(() => {
     const getMovies = () => {
       axios
@@ -19,6 +21,28 @@ const MovieList = props => {
 
     getMovies();
   }, []);
+
+  // useEffect to send a new movie
+  useEffect(() => {
+    const addMovie = () => {
+      axios
+        .post('http://localhost:5000/api/movies',
+          {
+            id: 6,
+            title: "Armagedon",
+            director: "Bob Dole",
+            metascore: 12,
+            start: [
+              "Don Whitely",
+              "Ray Thurman",
+              "Nick Durbin"
+            ]
+          }
+        )
+        .then(res => console.log(res))
+        .catch(err => console.log(err))
+    }
+  })
 
   return (
     <div className="movie-list">
