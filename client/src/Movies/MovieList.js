@@ -2,7 +2,6 @@ import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom'
 import axios from 'axios';
 import MovieCard from './MovieCard';
-import { NONAME } from 'dns';
 
 const MovieList = props => {
   const [movies, setMovies] = useState([])
@@ -21,30 +20,29 @@ const MovieList = props => {
     }
 
     getMovies();
-  }, []);
+  }, [movies]);
 
   // useEffect to send a new movie
-  useEffect(() => {
-    const addMovie = () => {
-      axios
-        .post('http://localhost:5000/api/movies', {
-          id: 6,
-          title: "Armagedon",
-          director: "Bob Dole",
-          metascore: 12,
-          start: [
-            "Don Whitely",
-            "Ray Thurman",
-            "Nick Durbin"
-          ]
-        })
-        .then(res => console.log(res))
-        .catch(err => console.log(err))
-    }
-  }, [])
+  const addMovie = () => {
+    axios
+      .post('http://localhost:5000/api/movies', {
+        id: 6,
+        title: "Armagedon",
+        director: "Bob Dole",
+        metascore: 12,
+        start: [
+          "Don Whitely",
+          "Ray Thurman",
+          "Nick Durbin"
+        ]
+      })
+      .then(res => console.log(res))
+      .catch(err => console.log(err))
+  }
 
   return (
     <div className="movie-list">
+      <button onClick={addMovie}>Add Movie</button>
       {movies.map(movie => (
         <Link style={linkStyle} to={`/movies/${movie.id}`}><MovieDetails key={movie.id} movie={movie} /></Link>
       ))}
