@@ -13,11 +13,11 @@ const MovieCard = ({ movie }) => {
       </div>
       <h3>Actors</h3>
 
-      {/* {stars.map(star => (
+      {stars && stars.map(star => (
         <div key={star} className="movie-star">
           {star}
         </div>
-      ))} */}
+      ))}
     </div>
   );
 };
