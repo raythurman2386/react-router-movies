@@ -30,7 +30,7 @@ const MovieList = props => {
         title: "Armagedon",
         director: "Bob Dole",
         metascore: 12,
-        start: [
+        stars: [
           "Don Whitely",
           "Ray Thurman",
           "Nick Durbin"
@@ -42,7 +42,6 @@ const MovieList = props => {
 
   return (
     <div className="movie-list">
-      <button onClick={addMovie}>Add Movie</button>
       {movies.map(movie => (
         <Link style={linkStyle} to={`/movies/${movie.id}`}><MovieDetails key={movie.id} movie={movie} /></Link>
       ))}
