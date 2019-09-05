@@ -26,23 +26,21 @@ const MovieList = props => {
   useEffect(() => {
     const addMovie = () => {
       axios
-        .post('http://localhost:5000/api/movies',
-          {
-            id: 6,
-            title: "Armagedon",
-            director: "Bob Dole",
-            metascore: 12,
-            start: [
-              "Don Whitely",
-              "Ray Thurman",
-              "Nick Durbin"
-            ]
-          }
-        )
+        .post('http://localhost:5000/api/movies', {
+          id: 6,
+          title: "Armagedon",
+          director: "Bob Dole",
+          metascore: 12,
+          start: [
+            "Don Whitely",
+            "Ray Thurman",
+            "Nick Durbin"
+          ]
+        })
         .then(res => console.log(res))
         .catch(err => console.log(err))
     }
-  })
+  }, [])
 
   return (
     <div className="movie-list">
