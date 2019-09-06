@@ -9,10 +9,18 @@ const AddMovie = (props) => {
     stars: [],
   })
 
+  const handleChange = (event) => {
+    const { name, value } = event.target;
+    setMovie({
+      ...movie,
+      [name]: value
+    })
+  }
+
   return (
     <div>
       <form>
-        <input type="text" name="title" placeholder="Title" />
+        <input type="text" value={movie.title} name="title" placeholder="Title" handleChange={(event) => handleChange(event)} />
       </form>
     </div>
   )
