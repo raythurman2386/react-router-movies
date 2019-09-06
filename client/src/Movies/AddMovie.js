@@ -19,7 +19,7 @@ const AddMovie = (props) => {
 
   const handleSubmit = event => {
     event.preventDefault();
-    console.log(movie.title);
+    console.log(movie);
   };
 
   return (
