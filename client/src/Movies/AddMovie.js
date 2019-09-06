@@ -26,6 +26,7 @@ const AddMovie = (props) => {
     <div>
       <form onSubmit={e => handleSubmit(e)}>
         <input type="text" value={movie.title} name="title" placeholder="Title" handleChange={(event) => handleChange(event)} />
+        <button>Submit</button>
       </form>
     </div>
   )

@@ -8,6 +8,7 @@ const SavedList = props => (
       <Link to={`/movies/${movie.id}`} className="saved-movie">{movie.title}</Link>
     ))}
     <Link to="/"><div className="home-button">Home</div></Link>
+    <Link to="/add"><div className="add-button">Add Movie</div></Link>
   </div>
 );
 
