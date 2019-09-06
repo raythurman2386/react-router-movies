@@ -25,7 +25,27 @@ const AddMovie = (props) => {
   return (
     <div>
       <form onSubmit={e => handleSubmit(e)}>
-        <input type="text" value={movie.title} name="title" placeholder="Title" handleChange={(event) => handleChange(event)} />
+        <input
+          type="text"
+          value={movie.title}
+          name="title"
+          placeholder="Title"
+          onChange={(event) => handleChange(event)}
+        />
+        <input
+          type="text"
+          value={movie.director}
+          name="director"
+          placeholder="Director"
+          onChange={(event) => handleChange(event)}
+        />
+        <input
+          type="text"
+          value={movie.metascore}
+          name="metascore"
+          placeholder="Metascore"
+          onChange={(event) => handleChange(event)}
+        />
         <button>Submit</button>
       </form>
     </div>
