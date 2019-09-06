@@ -27,6 +27,7 @@ const App = () => {
     getMovies();
   }, [movies]);
 
+  // Function to save the movie to the saved list
   const addToSavedList = movie => {
     (!savedList.includes(movie)) &&
       setSavedList([...savedList, movie]);
@@ -37,16 +38,16 @@ const App = () => {
       <SavedList list={savedList} />
       <Route exact
         path="/"
-        render={
-          (props) =>
-            <MovieList
-              {...props}
-              movies={movies}
-            />
-        }
+        render={(props) => <MovieList {...props} movies={movies} />}
       />
-      <Route exact path="/movies/:id" render={props => <Movie {...props} addToSavedList={addToSavedList} />} />
-      <Route path="/add" render={props => <AddMovie {...props} movies={movies} />} />
+      <Route exact
+        path="/movies/:id"
+        render={props => <Movie {...props} addToSavedList={addToSavedList} />}
+      />
+      <Route
+        path="/add"
+        render={props => <AddMovie {...props} movies={movies} />}
+      />
     </div>
   );
 };
