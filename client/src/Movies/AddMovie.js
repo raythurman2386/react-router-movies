@@ -1,8 +1,9 @@
 import React, { useState } from 'react'
+import Axios from 'axios';
 
 const AddMovie = (props) => {
   const [movie, setMovie] = useState({
-    id: props.movies.length + 1,
+    id: 6,
     title: "",
     director: "",
     metascore: "",
@@ -19,7 +20,14 @@ const AddMovie = (props) => {
 
   const handleSubmit = event => {
     event.preventDefault();
-    console.log(movie);
+    Axios
+      .post('http://localhost:5000/api/movies', movie)
+      .then(res => {
+        console.log(res)
+        props.history.go("/")
+        setMovie({ id: movie.id + 1, title: "", director: "", metascore: "", stars: [] })
+      })
+      .catch(err => console.log(err))
   };
 
   return (
