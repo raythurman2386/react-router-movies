@@ -24,7 +24,6 @@ const AddMovie = (props) => {
       .post('http://localhost:5000/api/movies', movie)
       .then(res => {
         console.log(res)
-        props.history.go("/")
         setMovie({ id: movie.id + 1, title: "", director: "", metascore: "", stars: [] })
       })
       .catch(err => console.log(err))
