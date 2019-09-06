@@ -24,7 +24,6 @@ const App = () => {
           console.error('Server Error', error);
         });
     }
-
     getMovies();
   }, [movies]);
 
