@@ -29,7 +29,8 @@ const App = () => {
 
   // Function to save the movie to the saved list
   const addToSavedList = movie => {
-    !savedList.includes(movie) && setSavedList([...savedList, movie])
+    const findMovie = savedList.find(item => item.title === movie.title)
+    !findMovie && setSavedList([...savedList, movie])
   }
 
   return (
