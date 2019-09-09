@@ -1,16 +1,17 @@
-import React from 'react';
+import React from 'react'
 import { Link } from 'react-router-dom'
-import MovieCard from './MovieCard';
+import MovieCard from './MovieCard'
 
 const MovieList = props => {
-
   return (
-    <div className="movie-list">
+    <div className='movie-list'>
       {props.movies.map(movie => (
-        <Link style={linkStyle} to={`/movies/${movie.id}`}><MovieDetails key={movie.id} movie={movie} /></Link>
+        <Link key={movie.id} style={linkStyle} to={`/movies/${movie.id}`}>
+          <MovieDetails key={movie.id} movie={movie} />
+        </Link>
       ))}
     </div>
-  );
+  )
 }
 
 function MovieDetails({ movie }) {
@@ -18,13 +19,12 @@ function MovieDetails({ movie }) {
     <>
       <MovieCard movie={movie} />
     </>
-  );
+  )
 }
 
-export default MovieList;
-
+export default MovieList
 
 const linkStyle = {
-  textDecoration: "none",
-  color: "black",
+  textDecoration: 'none',
+  color: 'black',
 }
