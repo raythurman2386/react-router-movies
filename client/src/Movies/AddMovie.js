@@ -77,6 +77,7 @@ const AddMovie = props => {
           name='stars'
           placeholder='Stars'
           className='form-input'
+          disabled
           // onChange={event => handleArray(event)}
         />
         <button className='form-submit'>Submit</button>
